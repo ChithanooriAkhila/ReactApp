@@ -22,9 +22,30 @@ class User extends React.Component{
         };
         console.log("hey i am fron constructor")
     }
-    componentDidMount(){
-        this.setState({planet:'mars'})
-    }
+    componentDidMount() {
+        this.setState({ planet: "Mars" });
+        this.setState({ planet: "jupiter" });
+      }
+    
+    
+      shouldComponentUpdate(nextProp, nextState) {
+        console.log("from shouldComponentUpdate");
+        console.log({
+          nextProp,
+          nextState,
+        });
+        return true;
+      }
+    
+      getSnapshotBeforeUpdate(prevProp, prevState) {
+        console.log("from getSnapshotBeforeUpdate");
+        console.log({ prevProp, prevState });
+        return true;
+      }
+    
+      componentDidUpdate() {
+        console.log(this.state);
+      }
     render(){
         console.log("render")
         return (
