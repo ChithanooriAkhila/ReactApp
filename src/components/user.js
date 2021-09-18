@@ -1,60 +1,28 @@
-/*const User=(props)=>{
-    return (
-        <div>
-            <h1>
-                {props.name}
-            </h1>
-            <h4>{props.desc}</h4>
-        </div>
-    );
-};
-export default User;*/
+import React, { useState, useEffect} from 'react';
 
+const User =(props)=>{
+    const [planet, setPlanet]=useState("earth");
+    //component didmount
+    useEffect(()=>{
+        //setPlanet("mars");
+        console.log("component mounting");
+        
+        //componentwillunmount
+        return console.log("bye bye");
+    }, []);
+    //componetdid update
+    //shouldComponentUpdate
+    useEffect(()=>{
+        console.log("planet changes");
 
+    },[planet]);
 
-import React from 'react';
-class User extends React.Component{
-    constructor(props){
-        super(props);
-
-        this.state={
-            planet:"earth",
-        };
-        console.log("hey i am fron constructor")
-    }
-    componentDidMount() {
-        this.setState({ planet: "Mars" });
-        this.setState({ planet: "jupiter" });
-      }
-    
-    
-      shouldComponentUpdate(nextProp, nextState) {
-        console.log("from shouldComponentUpdate");
-        console.log({
-          nextProp,
-          nextState,
-        });
-        return true;
-      }
-    
-      getSnapshotBeforeUpdate(prevProp, prevState) {
-        console.log("from getSnapshotBeforeUpdate");
-        console.log({ prevProp, prevState });
-        return true;
-      }
-    
-      componentDidUpdate() {
-        console.log(this.state);
-      }
-    render(){
-        console.log("render")
         return (
             <div>
-                <h1>{this.props.name}</h1>
-                <p>{this.props.desc}</p>
-                <h4>{this.state.planet}</h4>
+                <h1>{props.name}</h1>
+                <p>{props.desc}</p>
+                <button onClick={()=>setPlanet("pluto")}>{planet}</button>
             </div>
         );
-    }
 }
 export default User;

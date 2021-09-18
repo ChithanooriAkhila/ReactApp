@@ -5,7 +5,6 @@ function App() {
   <div>
     <h1>Users</h1>
     <User name="Akhila" desc="fswd" />
-    <User name="Pavan" desc="ehhkwd" />
   </div>
   );
 }
